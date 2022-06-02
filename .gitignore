@@ -5,6 +5,9 @@ package-lock.json
 package.json
 jsconfig.json
 vue.config.js
+babel.config.js
+vue.config.js
+.gitignore
 
 
 # local env files
