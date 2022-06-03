@@ -1,9 +1,18 @@
 <template>
-  <div id="app">Hello Vue.JS</div>
+  <div class="wrapper">
+    <hero-view />
+
+    <footer-co />
+  </div>
 </template>
 
 <script>
-export default {};
+import HeroView from "@/views/HeroView.vue";
+import FooterCo from "@/components/FooterCo.vue";
+
+export default {
+  components: { HeroView, FooterCo },
+};
 </script>
 
 <style>
