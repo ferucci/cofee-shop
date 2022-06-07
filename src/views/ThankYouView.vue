@@ -7,7 +7,7 @@
             <nav-bar-co />
           </div>
         </div>
-        <h1 class="title-big">Contact us</h1>
+        <h1 class="title-big">Thank You</h1>
       </div>
     </div>
     <section class="contacts">
@@ -37,10 +37,13 @@
   </main>
 </template>
 
+
 <script>
 import NavBarCo from "@/components/NavBarCo.vue";
 
 export default {
-  components: { NavBarCo },
+  components: {
+    NavBarCo,
+  },
 };
 </script>

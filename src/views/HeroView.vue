@@ -19,9 +19,7 @@
               We makes every day full of energy and taste
             </div>
             <div class="preview__subtitle">Want to try our beans?</div>
-            <router-link class="preview__btn" to="/our-coffee">
-              More
-            </router-link>
+            <router-link class="preview__btn" to="/thanks"> More </router-link>
           </div>
         </div>
       </div>
