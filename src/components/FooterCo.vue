@@ -4,20 +4,20 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
-            <li class="footer__item">
-              <router-link to="/">
-                <img src="@/assets/logo/Logo_black.svg" alt="logo" />
-              </router-link>
-            </li>
-            <li class="footer__item">
-              <router-link to="/our-coffee"> Our coffee </router-link>
-            </li>
-            <li class="footer__item">
-              <router-link to="/goods-view"> For your pleasure </router-link>
-            </li>
-            <li class="footer__item">
-              <router-link to="/contacts"> Contact us </router-link>
-            </li>
+            <nav-item :link="links.header.link" classItem="footer__item">
+              <img
+                :src="require(`@/assets/logo/${links.header.icon}`)"
+                :alt="links.header.icon"
+              />
+            </nav-item>
+
+            <nav-item
+              v-for="link in links.other"
+              :key="link"
+              classItem="footer__item"
+              :link="link.link"
+              :text="link.text"
+            />
           </ul>
         </div>
       </div>
@@ -29,3 +29,41 @@
     </div>
   </footer>
 </template>
+
+<script>
+import NavItem from "@/components/NavItem.vue";
+
+export default {
+  data() {
+    return {
+      links: {
+        header: {
+          id: 0,
+          icon: "Logo_black.svg",
+          link: "/",
+        },
+        other: [
+          {
+            id: 1,
+            text: "Our coffee",
+            link: "/our-coffee",
+          },
+          {
+            id: 2,
+            text: "For your pleasure",
+            link: "/goods-view",
+          },
+          {
+            id: 3,
+            text: "Contact us",
+            link: "/contacts",
+          },
+        ],
+      },
+    };
+  },
+  components: {
+    NavItem,
+  },
+};
+</script>

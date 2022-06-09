@@ -69,12 +69,14 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <product-card />
-              <product-card />
-              <product-card />
-              <product-card />
-              <product-card />
-              <product-card />
+              <product-card
+                v-for="itemCofee in coffee"
+                :key="itemCofee"
+                classItem="shop__item"
+                :name="itemCofee.name"
+                :price="itemCofee.price"
+                :image="itemCofee.image"
+              />
             </div>
           </div>
         </div>
@@ -88,6 +90,48 @@ import NavBarCo from "@/components/NavBarCo.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
 export default {
+  data() {
+    return {
+      cofee: [
+        {
+          id: 0,
+          image: "coffee-1.jpg",
+          name: "Solimo Coffee Beans 2kg",
+          price: 10.93,
+        },
+        {
+          id: 1,
+          image: "coffee-2.jpg",
+          name: "Presto Coffee Beans 1kg",
+          price: 12.99,
+        },
+        {
+          id: 2,
+          image: "coffee-3.jpg",
+          name: "AROMISTICO Coffee 1kg",
+          price: 5.99,
+        },
+        {
+          id: 3,
+          image: "coffee-1.jpg",
+          name: "Presto Coffee Beans 1kg",
+          price: 27.99,
+        },
+        {
+          id: 4,
+          image: "coffee-2.jpg",
+          name: "AROMISTICO Coffee 1kg",
+          price: 33.99,
+        },
+        {
+          id: 5,
+          image: "coffee-1.jpg",
+          name: "Solimo Coffee Beans 2kg",
+          price: 21.99,
+        },
+      ],
+    };
+  },
   components: {
     NavBarCo,
     ProductCard,

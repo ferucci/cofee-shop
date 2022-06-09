@@ -19,7 +19,9 @@
               We makes every day full of energy and taste
             </div>
             <div class="preview__subtitle">Want to try our beans?</div>
-            <router-link class="preview__btn" to="/thanks"> More </router-link>
+            <router-link class="preview__btn" to="/our-coffee">
+              More
+            </router-link>
           </div>
         </div>
       </div>
@@ -59,9 +61,14 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <product-card />
-              <product-card />
-              <product-card />
+              <product-card
+                v-for="bestItem in bestsellers"
+                :key="bestItem"
+                classItem="best__item"
+                :name="bestItem.name"
+                :price="bestItem.price"
+                :image="bestItem.image"
+              />
             </div>
           </div>
         </div>
@@ -76,5 +83,29 @@ import ProductCard from "@/components/ProductCard.vue";
 
 export default {
   components: { NavBarCo, ProductCard },
+  data() {
+    return {
+      bestsellers: [
+        {
+          id: 0,
+          image: "coffee-1.jpg",
+          name: "Solimo Coffee Beans 2kg",
+          price: 10.99,
+        },
+        {
+          id: 1,
+          image: "coffee-2.jpg",
+          name: "Presto Coffee Beans 1kg",
+          price: 15.99,
+        },
+        {
+          id: 2,
+          image: "coffee-3.jpg",
+          name: "AROMISTICO Coffee 1kg",
+          price: 7.99,
+        },
+      ],
+    };
+  },
 };
 </script>
