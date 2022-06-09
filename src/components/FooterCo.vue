@@ -12,11 +12,11 @@
             </nav-item>
 
             <nav-item
-              v-for="link in links.other"
-              :key="link"
+              v-for="footerLink in links.other"
+              :key="footerLink.id"
               classItem="footer__item"
-              :link="link.link"
-              :text="link.text"
+              :link="footerLink.link"
+              :text="footerLink.text"
             />
           </ul>
         </div>
@@ -33,28 +33,30 @@
 <script>
 import NavItem from "@/components/NavItem.vue";
 
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   data() {
     return {
       links: {
         header: {
-          id: 0,
+          id: uuidv4(),
           icon: "Logo_black.svg",
           link: "/",
         },
         other: [
           {
-            id: 1,
+            id: uuidv4(),
             text: "Our coffee",
             link: "/our-coffee",
           },
           {
-            id: 2,
+            id: uuidv4(),
             text: "For your pleasure",
             link: "/goods-view",
           },
           {
-            id: 3,
+            id: uuidv4(),
             text: "Contact us",
             link: "/contacts",
           },

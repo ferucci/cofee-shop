@@ -63,7 +63,7 @@
             <div class="best__wrapper">
               <product-card
                 v-for="bestItem in bestsellers"
-                :key="bestItem"
+                :key="bestItem.id"
                 classItem="best__item"
                 :name="bestItem.name"
                 :price="bestItem.price"
@@ -81,25 +81,27 @@
 import NavBarCo from "@/components/NavBarCo.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
+import { v4 as uuidv4 } from "uuid";
+
 export default {
   components: { NavBarCo, ProductCard },
   data() {
     return {
       bestsellers: [
         {
-          id: 0,
+          id: uuidv4(),
           image: "coffee-1.jpg",
           name: "Solimo Coffee Beans 2kg",
           price: 10.99,
         },
         {
-          id: 1,
+          id: uuidv4(),
           image: "coffee-2.jpg",
           name: "Presto Coffee Beans 1kg",
           price: 15.99,
         },
         {
-          id: 2,
+          id: uuidv4(),
           image: "coffee-3.jpg",
           name: "AROMISTICO Coffee 1kg",
           price: 7.99,
