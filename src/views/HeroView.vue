@@ -19,14 +19,18 @@
               We makes every day full of energy and taste
             </div>
             <div class="preview__subtitle">Want to try our beans?</div>
-            <router-link class="preview__btn" to="/our-coffee">
+            <a
+              @click.prevent="smoothScroll"
+              class="preview__btn"
+              href="./cofeepage.html"
+            >
               More
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <section class="about">
+    <section class="about" id="about" ref="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 offset-lg-3">
@@ -55,19 +59,19 @@
         </div>
       </div>
     </section>
-    <section class="best">
+    <section class="best" ref="ourBest">
       <div class="container">
         <div class="title">Our best</div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
               <product-card
-                v-for="bestItem in bestsellers"
-                :key="bestItem.id"
+                v-for="bestCard in bestsellers"
+                :key="bestCard.id"
                 classItem="best__item"
-                :name="bestItem.name"
-                :price="bestItem.price"
-                :image="bestItem.image"
+                :name="bestCard.name"
+                :price="bestCard.price"
+                :image="bestCard.image"
               />
             </div>
           </div>
@@ -81,7 +85,7 @@
 import NavBarCo from "@/components/NavBarCo.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
-import { v4 as uuidv4 } from "uuid";
+import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
   components: { NavBarCo, ProductCard },
@@ -89,25 +93,33 @@ export default {
     return {
       bestsellers: [
         {
-          id: uuidv4(),
+          id: 0,
           image: "coffee-1.jpg",
           name: "Solimo Coffee Beans 2kg",
           price: 10.99,
         },
         {
-          id: uuidv4(),
+          id: 1,
           image: "coffee-2.jpg",
           name: "Presto Coffee Beans 1kg",
           price: 15.99,
         },
         {
-          id: uuidv4(),
+          id: 2,
           image: "coffee-3.jpg",
           name: "AROMISTICO Coffee 1kg",
           price: 7.99,
         },
       ],
     };
+  },
+  methods: {
+    smoothScroll() {
+      scrollIntoView(this.$refs.ourBest, {
+        behavior: "smooth",
+        block: "start",
+      });
+    },
   },
 };
 </script>

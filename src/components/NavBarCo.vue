@@ -29,30 +29,28 @@
 <script>
 import NavItem from "@/components/NavItem.vue";
 
-import { v4 as uuidv4 } from "uuid";
-
 export default {
   data() {
     return {
       links: {
         header: {
-          id: uuidv4(),
+          id: 0,
           link: "/",
           icon: "Logo.svg",
         },
         other: [
           {
-            id: uuidv4(),
+            id: 1,
             link: "/our-coffee",
             text: "Our coffee",
           },
           {
-            id: uuidv4(),
+            id: 2,
             link: "/goods-view",
             text: "For your pleasure",
           },
           {
-            id: uuidv4(),
+            id: 3,
             link: "/contacts",
             text: "Contact us",
           },

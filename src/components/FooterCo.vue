@@ -4,10 +4,10 @@
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
           <ul class="footer d-flex flex-wrap">
-            <nav-item :link="links.header.link" classItem="footer__item">
+            <nav-item :link="links.footer.link" classItem="footer__item">
               <img
-                :src="require(`@/assets/logo/${links.header.icon}`)"
-                :alt="links.header.icon"
+                :src="require(`@/assets/logo/${links.footer.icon}`)"
+                :alt="links.footer.icon"
               />
             </nav-item>
 
@@ -33,30 +33,28 @@
 <script>
 import NavItem from "@/components/NavItem.vue";
 
-import { v4 as uuidv4 } from "uuid";
-
 export default {
   data() {
     return {
       links: {
-        header: {
-          id: uuidv4(),
+        footer: {
+          id: 0,
           icon: "Logo_black.svg",
           link: "/",
         },
         other: [
           {
-            id: uuidv4(),
+            id: 1,
             text: "Our coffee",
             link: "/our-coffee",
           },
           {
-            id: uuidv4(),
+            id: 2,
             text: "For your pleasure",
             link: "/goods-view",
           },
           {
-            id: uuidv4(),
+            id: 3,
             text: "Contact us",
             link: "/contacts",
           },

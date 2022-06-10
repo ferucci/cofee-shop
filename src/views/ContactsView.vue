@@ -21,7 +21,7 @@
               alt="Beans logo"
             />
 
-            <form action="#" class="mt-5">
+            <form @submit="submitForm" action="#" class="mt-5">
               <div class="form-group row">
                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                   <label for="name-input" class="mb-0">
@@ -30,7 +30,12 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input type="text" class="form-control" id="name-input" />
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name-input"
+                    v-model="form.nameInput"
+                  />
                 </div>
               </div>
 
@@ -42,7 +47,12 @@
                   </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input type="email" class="form-control" id="email-input" />
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email-input"
+                    v-model="form.emailInput"
+                  />
                 </div>
               </div>
 
@@ -51,7 +61,12 @@
                   <label for="phone-input" class="mb-0"> Phone </label>
                 </div>
                 <div class="col col-12 col-sm-9">
-                  <input type="tel" class="form-control" id="phone-input" />
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone-input"
+                    v-model="form.phoneInput"
+                  />
                 </div>
               </div>
 
@@ -69,13 +84,19 @@
                     id="message"
                     rows="5"
                     placeholder="Leave your comments here"
+                    v-model="form.message"
                   ></textarea>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-outline-dark send-btn">Send us</button>
+                  <button
+                    @click.prevent="submitForm"
+                    class="btn btn-outline-dark send-btn"
+                  >
+                    Send us
+                  </button>
                 </div>
               </div>
             </form>
@@ -90,6 +111,21 @@
 import NavBarCo from "@/components/NavBarCo.vue";
 
 export default {
+  data() {
+    return {
+      form: {
+        nameInput: "",
+        emailInput: "",
+        phoneInput: "",
+        message: "",
+      },
+    };
+  },
+  methods: {
+    submitForm() {
+      console.log(this.form);
+    },
+  },
   components: { NavBarCo },
 };
 </script>
