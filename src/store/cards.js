@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const cards = {
   state: {
-    cofee: [
+    coffee: [
       {
         id: uuidv4(),
         image: "coffee-1.jpg",
@@ -44,8 +44,13 @@ const cards = {
   },
   getters: {
     getCards(state) {
-      return state.cofee
+      return state.coffee
     },
+    getProductById(state) {
+      return (id) => {
+        return state.coffee.find((card) => card.id === +id)
+      }
+    }
   }
 }
 

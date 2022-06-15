@@ -46,6 +46,7 @@
           </div>
         </div>
       </div>
+      {{ pageName }} {{ card }}
     </section>
   </main>
 </template>
@@ -56,6 +57,15 @@ import NavBarCo from "@/components/NavBarCo.vue";
 export default {
   components: {
     NavBarCo,
+  },
+  computed: {
+    pageName() {
+      return this.$route.name;
+    },
+    card() {
+      console.log(this.$store.getters["getProductById"](this.$route.params.id));
+      return this.$route.params.id;
+    },
   },
 };
 </script>

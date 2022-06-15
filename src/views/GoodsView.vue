@@ -52,9 +52,8 @@
                 v-for="card in coffee"
                 :key="card.id"
                 classItem="shop__item"
-                :name="card.name"
-                :price="card.price"
-                :image="card.image"
+                :card="card"
+                @onNavigate="navigate"
               />
             </div>
           </div>
@@ -76,6 +75,12 @@ export default {
   computed: {
     coffee() {
       return this.$store.getters["getGoodsCards"];
+    },
+  },
+  methods: {
+    navigate(id) {
+      console.log(id);
+      this.$router.push("/our-coffee/item");
     },
   },
 };
