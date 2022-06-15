@@ -21,7 +21,7 @@
               alt="Beans logo"
             />
 
-            <form @submit="submitForm" action="#" class="mt-5">
+            <form @submit.prevent="submitForm" action="#" class="mt-5">
               <div class="form-group row">
                 <div class="col col-12 col-sm-3 d-flex align-items-center">
                   <label for="name-input" class="mb-0">
@@ -91,12 +91,7 @@
 
               <div class="row">
                 <div class="col">
-                  <button
-                    @click.prevent="submitForm"
-                    class="btn btn-outline-dark send-btn"
-                  >
-                    Send us
-                  </button>
+                  <button class="btn btn-outline-dark send-btn">Send us</button>
                 </div>
               </div>
             </form>

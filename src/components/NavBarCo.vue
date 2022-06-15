@@ -30,36 +30,11 @@
 import NavItem from "@/components/NavItem.vue";
 
 export default {
-  data() {
-    return {
-      links: {
-        header: {
-          id: 0,
-          link: "/",
-          icon: "Logo.svg",
-        },
-        other: [
-          {
-            id: 1,
-            link: "/our-coffee",
-            text: "Our coffee",
-          },
-          {
-            id: 2,
-            link: "/goods-view",
-            text: "For your pleasure",
-          },
-          {
-            id: 3,
-            link: "/contacts",
-            text: "Contact us",
-          },
-        ],
-      },
-    };
-  },
-  components: {
-    NavItem,
+  components: { NavItem },
+  computed: {
+    links() {
+      return this.$store.getters["getHeaderLinks"];
+    },
   },
 };
 </script>

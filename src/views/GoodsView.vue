@@ -49,7 +49,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card
-                v-for="card in goodsCofee"
+                v-for="card in coffee"
                 :key="card.id"
                 classItem="shop__item"
                 :name="card.name"
@@ -68,54 +68,15 @@
 import NavBarCo from "@/components/NavBarCo.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
-import { v4 as uuidv4 } from "uuid";
-
 export default {
-  data() {
-    return {
-      goodsCofee: [
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 10.93,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 12.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 5.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Presto Coffee Beans 1kg",
-          price: 27.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          name: "AROMISTICO Coffee 1kg",
-          price: 33.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          name: "Solimo Coffee Beans 2kg",
-          price: 21.99,
-        },
-      ],
-    };
-  },
   components: {
     NavBarCo,
     ProductCard,
+  },
+  computed: {
+    coffee() {
+      return this.$store.getters["getGoodsCards"];
+    },
   },
 };
 </script>
