@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import links from './links'
-import cards from "./cards";
+import cards from "./coffee";
 import goodsCards from "./goods-cards";
 import bestsellers from "./bestsellers-cards";
 

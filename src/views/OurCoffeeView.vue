@@ -88,7 +88,14 @@
 import NavBarCo from "@/components/NavBarCo.vue";
 import ProductCard from "@/components/ProductCard.vue";
 
+import { navigate } from "../mixins/navigate";
+
 export default {
+  data() {
+    return {
+      name: "coffee",
+    };
+  },
   components: {
     NavBarCo,
     ProductCard,
@@ -98,11 +105,6 @@ export default {
       return this.$store.getters["getCards"];
     },
   },
-  methods: {
-    navigate(id) {
-      console.log(id);
-      this.$router.push({ name: "coffee", params: { id: id } });
-    },
-  },
+  mixins: [navigate],
 };
 </script>
